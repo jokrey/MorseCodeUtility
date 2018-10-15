@@ -1,10 +1,10 @@
 package jokrey.utilities.morse.input;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jokrey.utilities.animation.util.AEColor;
 import jokrey.utilities.animation.util.AEImage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static jokrey.utilities.morse.BinarySignalUnit.getRatioBetween;
 

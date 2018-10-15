@@ -4,7 +4,6 @@ import jokrey.utilities.morse.BinarySignalUnit;
 import jokrey.utilities.morse.input.ActiveInputsOverTimeInputReceiver;
 import jokrey.utilities.morse.input.PureInputReceiver;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 

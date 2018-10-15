@@ -1,17 +1,13 @@
 package jokrey.utilities.morse.output.example.old;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Toolkit;
+import jokrey.utilities.morse.BinarySignalUnit;
+import jokrey.utilities.morse.SignalCharacterAlphabet;
+import jokrey.utilities.morse.StandardMoseAlphabet;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.*;
-
-import jokrey.utilities.morse.SignalCharacterAlphabet;
-import jokrey.utilities.morse.BinarySignalUnit;
-import jokrey.utilities.morse.StandardMoseAlphabet;
-import util.swing.SWING_UTIL;
 
 /**
  * Works without AnimationEngine, because one's essential components have been copy pasted into this class below
@@ -25,9 +21,8 @@ public class OldDisplayWorkingWithoutAnimationPanel extends JPanel {
 		f.add(s);
         f.setExtendedState( f.getExtendedState()|JFrame.MAXIMIZED_BOTH );
 		f.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        f.setLocationRelativeTo(null);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		SWING_UTIL.centerOnMouseScreen(f);
 		
 		s.addMouseListener(new MouseAdapter() {
 			@Override public void mousePressed(MouseEvent arg0) {

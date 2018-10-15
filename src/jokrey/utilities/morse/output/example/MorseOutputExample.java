@@ -11,7 +11,7 @@ import javax.swing.*;
 /**
  * Basic UI for audio and visual output testing. Also serves as an example
  */
-public class BinarySignalSequenceOutputExample {
+public class MorseOutputExample {
 	public static void main(String[] args) throws LineUnavailableException {
 		String to_morse = JOptionPane.showInputDialog("Please enter text to be shown as visual morse code:");
 

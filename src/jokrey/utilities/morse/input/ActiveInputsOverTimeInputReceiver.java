@@ -13,6 +13,11 @@ public class ActiveInputsOverTimeInputReceiver extends InputReceiver {
         lastSignal_timestamp = System.nanoTime();
     }
 
+    public void clear() {
+        events.clear();
+        restart_clock();
+    }
+
     private ArrayList<Event> events = new ArrayList<>();
     public void addInput_active() {
         events.add(new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastSignal_timestamp) / 1e9), false)); //adding a pause event

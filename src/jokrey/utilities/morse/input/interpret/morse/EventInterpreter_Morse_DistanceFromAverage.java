@@ -1,13 +1,16 @@
 package jokrey.utilities.morse.input.interpret.morse;
 
 import jokrey.utilities.morse.BinarySignalUnit;
-import jokrey.utilities.morse.SignalCharacterAlphabet;
 import jokrey.utilities.morse.StandardMoseAlphabet;
 import jokrey.utilities.morse.input.Event;
 import jokrey.utilities.morse.input.interpret.EventInterpreter;
 
 import java.util.ArrayList;
 
+/**
+ * TODO: Explain the idea
+ * TODO: outlier detection
+ */
 public class EventInterpreter_Morse_DistanceFromAverage extends EventInterpreter {
     //Theoretically adjustable Parameters
     public double times_av_shortTOlong_threshold = 1.6;

@@ -1,15 +1,18 @@
 package jokrey.utilities.morse.input.interpret.morse;
 
-import java.util.ArrayList;
-
 import jokrey.utilities.morse.BinarySignalUnit;
-import jokrey.utilities.morse.SignalCharacterAlphabet;
 import jokrey.utilities.morse.StandardMoseAlphabet;
 import jokrey.utilities.morse.input.Event;
 import jokrey.utilities.morse.input.interpret.EventInterpreter;
 
+import java.util.ArrayList;
+
 import static jokrey.utilities.morse.BinarySignalUnit.getRatioBetween;
 
+/**
+ * TODO: Explain the idea
+ * TODO: outlier detection
+ */
 public class EventInterpreter_Morse_MinMaxRatio extends EventInterpreter {
     //Theoretically adjustable Parameters
     public double shortLongRatioToTriggerLongSignal = 0.6;

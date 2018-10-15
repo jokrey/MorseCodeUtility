@@ -1,13 +1,12 @@
 package jokrey.utilities.morse.input.interpret.morse;
 
-import jokrey.utilities.morse.input.interpret.EventInterpreter;
 import jokrey.utilities.morse.input.interpret.EventInterpreterTest;
 import org.junit.ComparisonFailure;
 import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 public class EventInterpreter_Morse_DistanceFromAverageTest {
     @Test
