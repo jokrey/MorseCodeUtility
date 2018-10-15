@@ -25,9 +25,10 @@ public class VisualSignalOutputPipeline extends AnimationPipeline {
         else
             getDrawer().fillRect(AEColor.BLACK, new AERect(0,0,getPixelSize().getWidth(), getPixelSize().getHeight()));
         if(!engine.isCurrentlyPausing()) {
-            AERect textBounds = new AERect(getPixelSize().getWidth()/2 - getPixelSize().getWidth()/6/2,
-                    getPixelSize().getHeight()/2 - getPixelSize().getHeight()/6/2, getPixelSize().getWidth()/6, getPixelSize().getHeight()/6);
-            getDrawer().drawString(AEColor.RED, String.valueOf(engine.getCurrentlyDisplayedChar()), textBounds);
+//            AERect textBounds = new AERect(getPixelSize().getWidth()/2 - getPixelSize().getWidth()/6/2,
+//                    getPixelSize().getHeight()/2 - getPixelSize().getHeight()/6/2, getPixelSize().getWidth()/6, getPixelSize().getHeight()/6);
+//            getDrawer().drawString(AEColor.RED, String.valueOf(engine.getCurrentlyDisplayedChar()), textBounds);
+            getDrawer().drawString(AEColor.RED, 50, String.valueOf(engine.getCurrentlyDisplayedChar()), getPixelSize().getWidth()/2, getPixelSize().getHeight()/2);
         }
     }
 }
