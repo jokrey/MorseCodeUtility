@@ -10,7 +10,7 @@ Similar Encodings (i.e. encodings that are based on a binary "signal on, signal 
 
 * Clone the repository with the 'git clone' command.
 (Additionally there are a number of dependencies on the jokrey.utilities.animation package(another repository), so clone that into the path also. However most functionality does not strictly require this.)
-* Download one of the releases (possibly easier)
+* Download one of the released examples (just to play around)
 * Download the android app (there is an android app called "Morse Code - Transmit and Receive" [yes, I know that is a bad name], which has some overlap in code base and functionality)
 
 ## Features
