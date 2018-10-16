@@ -5,7 +5,6 @@ import jokrey.utilities.animation.pipeline.AnimationDrawer;
 import jokrey.utilities.animation.pipeline.AnimationPipeline;
 import jokrey.utilities.animation.util.AEColor;
 import jokrey.utilities.animation.util.AERect;
-import jokrey.utilities.morse.BinarySignalSequenceOutputEngine;
 
 /**
  * Animation Engine Pipeline to display the current step in the BinarySignalSequenceOutputEngine.
