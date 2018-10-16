@@ -18,7 +18,7 @@ public class ClickInputMorseInterpreterUIExample {
     public static void main(String[] args) {
         ActiveInputsOverTimeInputReceiver receiver = new ActiveInputsOverTimeInputReceiver();
 
-        final JFrame f = new JFrame();
+        final JFrame f = new JFrame("Example - don't judge ui design");
         JTextArea detectedArea = new JTextArea();
         f.add(new JScrollPane(detectedArea));
         detectedArea.setEditable(false);
