@@ -33,6 +33,8 @@ public class MorseOutputExample {
         };
 		JFrame f = Swing_FullScreenStarter.start(engine, new VisualSignalOutputPipeline(new AnimationDrawerSwing()), false);
 		f.setTitle("Example - don't judge ui design");
+        f.setSize(500, 500);
+        f.setLocationRelativeTo(null);
 		f.setExtendedState( f.getExtendedState()|JFrame.MAXIMIZED_BOTH );
 		f.setUndecorated(false);
 		f.setVisible(true);
