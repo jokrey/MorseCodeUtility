@@ -20,12 +20,13 @@ public class ActiveInputsOverTimeInputReceiver extends InputReceiver {
 
     private ArrayList<Event> events = new ArrayList<>();
     public void addInput_active() {
-        events.add(new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastSignal_timestamp) / 1e9), false)); //adding a pause event
+//        events.add(new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastSignal_timestamp) / 1e9), false)); //adding a pause event
+        events.add(new Event((System.nanoTime() - lastSignal_timestamp) / 1e9, false)); //adding a pause event
         signalOngoing =true;
         lastSignal_timestamp = System.nanoTime();
     }
     public void addInput_inactive() {
-        events.add(new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastSignal_timestamp) / 1e9), true)); //adding a signal event
+        events.add(new Event((System.nanoTime() - lastSignal_timestamp) / 1e9, true)); //adding a signal event
         signalOngoing =false;
         lastSignal_timestamp = System.nanoTime();
     }
@@ -36,7 +37,7 @@ public class ActiveInputsOverTimeInputReceiver extends InputReceiver {
         for(int i=0;i<events.size();i++) {
             events_arr[i]=events.get(i);
         }
-        events_arr[events_arr.length-1] = new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastSignal_timestamp) / 1e9), signalOngoing);
+        events_arr[events_arr.length-1] = new Event((System.nanoTime() - lastSignal_timestamp) / 1e9, signalOngoing);
         return events_arr;
     }
 }

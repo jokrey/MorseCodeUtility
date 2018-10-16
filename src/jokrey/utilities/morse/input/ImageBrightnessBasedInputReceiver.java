@@ -6,7 +6,7 @@ import jokrey.utilities.animation.util.AEImage;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jokrey.utilities.morse.BinarySignalUnit.getRatioBetween;
+import static jokrey.utilities.morse.BinarySignalUnit.getPercentageRatioBetween;
 
 /**
  * Input Receiver receiving raw rgb images of any size(as an AEImage, to be most platform independent).
@@ -100,7 +100,7 @@ public abstract class ImageBrightnessBasedInputReceiver extends InputReceiver {
             long lastUpOrDown = firstResult.timestamp;
             int lastWas = 0;//-1 for signal, 1 for pause
             for(int i=1;i<filteredResults.size();i++) {
-                double height_ratio = 1 - getRatioBetween(filteredResults.get(i).overallBrightness, lowestOverallBrightnessEver, highestOverallBrightnessEver);
+                double height_ratio = 1 - getPercentageRatioBetween(filteredResults.get(i).overallBrightness, lowestOverallBrightnessEver, highestOverallBrightnessEver);
 
                 long current = filteredResults.get(i).timestamp;
                 if(height_ratio < downTick_Threshold  && (lastWas == 0 || lastWas == 1)) {

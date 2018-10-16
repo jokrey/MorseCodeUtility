@@ -12,13 +12,15 @@ public class UpDownOverTimeInputReceiver extends InputReceiver {
     private ArrayList<Event> events = new ArrayList<>();
     public void addNewInput_signal() {
         if(lastInput_timestamp!=-1) {//ignore a very first input....
-            events.add(new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastInput_timestamp) / 1e9), true)); //adding a signal event
+//            events.add(new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastInput_timestamp) / 1e9), true)); //adding a signal event
+            events.add(new Event((System.nanoTime() - lastInput_timestamp) / 1e9, true)); //adding a signal event
         }
         lastInput_timestamp=System.nanoTime();
     }
     public void addNewInput_pause() {
         if(lastInput_timestamp!=-1) {//ignore a very first input....
-            events.add(new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastInput_timestamp) / 1e9), false)); //adding a pause event
+//            events.add(new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastInput_timestamp) / 1e9), false)); //adding a pause event
+            events.add(new Event((System.nanoTime() - lastInput_timestamp) / 1e9, false)); //adding a pause event
         }
         lastInput_timestamp=System.nanoTime();
     }
@@ -29,7 +31,8 @@ public class UpDownOverTimeInputReceiver extends InputReceiver {
         for(int i=0;i<events.size();i++) {
             events_arr[i]=events.get(i);
         }
-        events_arr[events_arr.length-1] = new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastInput_timestamp) / 1e9), false);
+//        events_arr[events_arr.length-1] = new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastInput_timestamp) / 1e9), false);
+        events_arr[events_arr.length-1] = new Event((System.nanoTime() - lastInput_timestamp) / 1e9, false);
         return events_arr;
     }
 }

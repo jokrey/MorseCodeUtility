@@ -18,7 +18,8 @@ public class ImageBrightnessOverTimeInputReceiver extends ImageBrightnessBasedIn
 
         System.arraycopy(raw_events, 0, events, 0, raw_events.length);
 
-        events[events.length-1] = new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastEventTimestamp) / 1e9), false);
+//        events[events.length-1] = new Event(Math.min(REAL_TIME_MAX_GAP, (System.nanoTime() - lastEventTimestamp) / 1e9), false);
+        events[events.length-1] = new Event((System.nanoTime() - lastEventTimestamp) / 1e9, false);
         return events;
     }
 

@@ -1,10 +1,8 @@
 package jokrey.utilities.morse.input.example;
 
 import jokrey.utilities.morse.input.ActiveInputsOverTimeInputReceiver;
-import jokrey.utilities.morse.input.interpret.EventInterpreter;
-import jokrey.utilities.morse.input.interpret.morse.EventInterpreter_Morse_DistanceFromAverage;
-import jokrey.utilities.morse.input.interpret.morse.EventInterpreter_Morse_MinMaxRatio;
-
+import jokrey.utilities.morse.input.Event;
+import jokrey.utilities.morse.input.interpret.morse.EventInterpreterMorse;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -14,12 +12,28 @@ import java.awt.event.MouseEvent;
  * Click Input Morse Interpreter UI Example
  */
 public class ClickInputMorseInterpreterUIExample {
-    static EventInterpreter interpreter = new EventInterpreter_Morse_MinMaxRatio(); //this may look weird, but for an example pretty much nothing matters
+    static EventInterpreterMorse interpreter = EventInterpreterMorse.getAll()[3]; //this may look weird, but for an example pretty much nothing matters
     public static void main(String[] args) {
         ActiveInputsOverTimeInputReceiver receiver = new ActiveInputsOverTimeInputReceiver();
 
         final JFrame f = new JFrame("Example - don't judge ui design");
-        JTextArea detectedArea = new JTextArea();
+        JTextArea detectedArea = new JTextArea() {
+            @Override protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+
+                Event[] events = interpreter.getPreProcessedEvents();
+                double total_length = Event.getTotalLength(events);
+
+                int width = getWidth();
+                double elapsed_pixels = 0;
+                for (Event event : events) {
+                    g.setColor(event.isASignal()? new Color(200, 10, 10, 100) : new Color(66, 66, 66, 100));
+                    double size = (event.tookInSeconds/total_length) * width;
+                    g.fillRect((int) elapsed_pixels, 0, (int) Math.ceil(size), getHeight());
+                    elapsed_pixels+=size;
+                }
+            }
+        };
         f.add(new JScrollPane(detectedArea));
         detectedArea.setEditable(false);
         detectedArea.setFont(new Font("Monospaced", Font.BOLD, 18));
@@ -28,12 +42,14 @@ public class ClickInputMorseInterpreterUIExample {
         JLabel huge_header_label = new JLabel("please enter text by clicking morse code into the area below");
         huge_header_label.setFont(new Font("Arial", Font.BOLD, 25));
         f.add(huge_header_label, BorderLayout.NORTH);
-        JLabel small_footer_label = new JLabel(
-                "use a right click to toggle the interpretation algorithm(both have their strengths so don't judge too early) | " +
-                "please note that pressing for very long may confuse the algorithm. So please do not do that. | " +
+        JTextArea small_display_footer_area = new JTextArea(
+                "use a right click to toggle the interpretation algorithm(both have their strengths so don't judge too early)\n" +
+                "Some algorithms may require a couple of short and a couple of long presses to be calibrated on what you think is short or long\n" +
+                "please note that pressing for very long may confuse some algorithms. So please do not do that.\n" +
                 "Writing incorrect or just almost correct morse code will also be interpreted incorrectly or almost correctly.");
-        small_footer_label.setFont(new Font("Arial", Font.BOLD, 12));
-        f.add(small_footer_label, BorderLayout.SOUTH);
+        small_display_footer_area.setFont(new Font("Arial", Font.BOLD, 12));
+        small_display_footer_area.setEnabled(false);
+        f.add(small_display_footer_area, BorderLayout.SOUTH);
         f.setSize(777, 333);
         f.setLocationRelativeTo(null);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,13 +71,8 @@ public class ClickInputMorseInterpreterUIExample {
                     interpreter.setEventsFrom(receiver);
                     detectedArea.setText(interpreter.getAnalysisResult());
                 } else if(SwingUtilities.isRightMouseButton(e)) {
-                    if(interpreter instanceof EventInterpreter_Morse_MinMaxRatio) {
-                        interpreter = new EventInterpreter_Morse_DistanceFromAverage();
-                        huge_header_label.setText("Using \"Distance From Average\" interpretation algorithm");
-                    } else {
-                        interpreter = new EventInterpreter_Morse_MinMaxRatio();
-                        huge_header_label.setText("Using \"Min Max Ratio\" interpretation algorithm");
-                    }
+                    interpreter = EventInterpreterMorse.getNext(interpreter);
+                    huge_header_label.setText("Using \""+interpreter.getName()+"\" interpretation algorithm");
                 } else {
                     receiver.clear();
                 }
@@ -72,6 +83,7 @@ public class ClickInputMorseInterpreterUIExample {
             while(f.isVisible()) {
                 interpreter.setEventsFrom(receiver);
                 detectedArea.setText(interpreter.getAnalysisResult());
+                detectedArea.repaint();
 
                 try {
                     Thread.sleep(100);
