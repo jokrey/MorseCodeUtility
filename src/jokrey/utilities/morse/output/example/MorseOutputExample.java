@@ -3,7 +3,7 @@ package jokrey.utilities.morse.output.example;
 import jokrey.utilities.animation.implementations.swing.display.Swing_FullScreenStarter;
 import jokrey.utilities.animation.implementations.swing.pipeline.AnimationDrawerSwing;
 import jokrey.utilities.animation.sound.ToggleableSoundThread;
-import jokrey.utilities.morse.BinarySignalSequenceOutputEngine;
+import jokrey.utilities.morse.output.BinarySignalSequenceOutputEngine;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.swing.*;

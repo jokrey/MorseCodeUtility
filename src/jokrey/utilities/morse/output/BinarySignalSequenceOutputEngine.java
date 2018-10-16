@@ -1,7 +1,10 @@
-package jokrey.utilities.morse;
+package jokrey.utilities.morse.output;
 
 import jokrey.utilities.animation.engine.TickEngine;
 import jokrey.utilities.animation.util.AESize;
+import jokrey.utilities.morse.BinarySignalUnit;
+import jokrey.utilities.morse.SignalCharacterAlphabet;
+import jokrey.utilities.morse.StandardMoseAlphabet;
 
 /**
  * BinarySignalSequenceOutputEngine(can technically step through any alphabet, but works with morse alphabet by default)
