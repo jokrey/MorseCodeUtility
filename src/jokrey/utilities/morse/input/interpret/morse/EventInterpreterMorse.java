@@ -8,8 +8,7 @@ import jokrey.utilities.morse.input.interpret.EventInterpreter;
 import java.util.ArrayList;
 
 /**
- * TODO: Even better normalization.
- * Maybe normalization of
+ * Upper class algorithm for all the Morse code algorithms.
  */
 public abstract class EventInterpreterMorse extends EventInterpreter {
     public EventInterpreterMorse() {

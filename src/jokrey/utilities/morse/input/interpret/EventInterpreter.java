@@ -5,9 +5,12 @@ import jokrey.utilities.morse.input.Event;
 import jokrey.utilities.morse.input.InputReceiver;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
+/**
+ * TODO: Even better normalization.
+ * Maybe normalization of short stuff.
+ */
 public abstract class EventInterpreter {
     protected final ArrayList<Event> captured_events = new ArrayList<>();
 

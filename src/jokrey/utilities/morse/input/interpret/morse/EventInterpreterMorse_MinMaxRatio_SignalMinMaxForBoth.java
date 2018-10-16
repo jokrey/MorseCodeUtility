@@ -1,7 +1,6 @@
 package jokrey.utilities.morse.input.interpret.morse;
 
 import jokrey.utilities.morse.input.Event;
-import static jokrey.utilities.morse.BinarySignalUnit.getPercentageRatioBetween;
 
 /**
  * Same as EventInterpreterMorse_MinMaxRatio_MinMaxFromEach, but use signal min max for pause calculation also.

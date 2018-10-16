@@ -3,6 +3,7 @@ package jokrey.utilities.morse.input.example;
 import jokrey.utilities.morse.input.ActiveInputsOverTimeInputReceiver;
 import jokrey.utilities.morse.input.Event;
 import jokrey.utilities.morse.input.interpret.morse.EventInterpreterMorse;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -10,6 +11,9 @@ import java.awt.event.MouseEvent;
 
 /**
  * Click Input Morse Interpreter UI Example
+ *
+ * Also a test for the different morse interpretation algorithms.
+ *    With end user level noise.
  */
 public class ClickInputMorseInterpreterUIExample {
     static EventInterpreterMorse interpreter = EventInterpreterMorse.getAll()[3]; //this may look weird, but for an example pretty much nothing matters

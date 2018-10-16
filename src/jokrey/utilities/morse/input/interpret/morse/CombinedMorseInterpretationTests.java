@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 import static org.junit.Assert.fail;
 
-public class CombinedMorseInterpreationTests {
+public class CombinedMorseInterpretationTests {
     @Test
     public void pure_test_all() {
         //every single one has to win this one
