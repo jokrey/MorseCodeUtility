@@ -57,7 +57,11 @@ public class BinarySignalUnit {
     }
 
 
-    public static double getRatioBetween(double n, double min, double max) {
+    /**
+     * I.e. when using min as the new 0 and max as the new 100, then what is n between 0 and 100 in relation to what it previously was between min and max.
+     */
+    public static double getPercentageRatioBetween(double n, double min, double max) {
+        if(max == min) return Double.MAX_VALUE;
         return (n - min) / (max - min);
     }
 }
