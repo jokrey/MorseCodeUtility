@@ -1,4 +1,4 @@
-package jokrey.utilities.morse.output.example;
+package jokrey.utilities.morse.output;
 
 import jokrey.utilities.animation.engine.AnimationEngine;
 import jokrey.utilities.animation.pipeline.AnimationDrawer;

@@ -4,6 +4,7 @@ import jokrey.utilities.animation.implementations.swing.display.Swing_FullScreen
 import jokrey.utilities.animation.implementations.swing.pipeline.AnimationDrawerSwing;
 import jokrey.utilities.animation.sound.ToggleableSoundThread;
 import jokrey.utilities.morse.output.BinarySignalSequenceOutputEngine;
+import jokrey.utilities.morse.output.VisualSignalOutputPipeline;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.swing.*;
