@@ -1,10 +1,10 @@
 # MorseCodeUtility
 
-Utility for a lot's of stuff surrounding morse code.
+Utility for lot's of stuff surrounding morse code.
 
 Allows visually displaying, audibly displaying and interpreting morse code(meaning to turn a binary signal sequence into text).
 
-Similar Encodings (i.e. encodings that are based on a binary "signal on, signal off" kind of logic) can also be easily displayed, encoded and interpreted using this API.
+Similar Encodings (i.e. encodings that are based on a binary "signal on for time, signal off for time" kind of logic) can also be easily displayed, encoded and interpreted using this API.
 
 ### Installing
 
